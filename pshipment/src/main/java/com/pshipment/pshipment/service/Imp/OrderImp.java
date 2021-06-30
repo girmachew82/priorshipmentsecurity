@@ -1,5 +1,7 @@
 package com.pshipment.pshipment.service.Imp;
 
+import java.util.List;
+
 import com.pshipment.pshipment.model.Order;
 import com.pshipment.pshipment.repository.CustomerRepository;
 import com.pshipment.pshipment.repository.OrderRepository;
@@ -23,6 +25,11 @@ public class OrderImp implements OrderInter {
             // return order;
         }).orElseThrow();
 
+    }
+
+    @Override
+    public List<Order> getById(int customerId) {
+        return orderRepo.findByCustomerId(customerId);
     }
     
 }
