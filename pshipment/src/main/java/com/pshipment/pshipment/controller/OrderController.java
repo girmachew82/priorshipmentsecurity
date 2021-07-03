@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/order")
 public class OrderController {
+    
     @Autowired
     private OrderImp orderServiceImp;
 
@@ -35,5 +36,9 @@ public class OrderController {
     @GetMapping("/getByCustomerId/{customerId}")
     public List<Order> getByCustomerId(@PathVariable("customerId") int customerId) {
         return orderServiceImp.getById(customerId);
+    }
+    @GetMapping("/getCarriersByOrderId/{orderId}")
+    public List<Object>  getCarriersByOrderId(@PathVariable("orderId") int orderId) {
+        return orderServiceImp.getCarriersByOrderId(orderId);
     }
 }

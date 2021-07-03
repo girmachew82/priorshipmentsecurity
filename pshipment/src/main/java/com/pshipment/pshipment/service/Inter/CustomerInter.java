@@ -11,5 +11,5 @@ import org.springframework.http.ResponseEntity;
 public interface CustomerInter {
    ResponseEntity<Customer> create(Customer customer);
    List<CustomerDto> all();
-   
+   CustomerDto getById(int customerId);
 }

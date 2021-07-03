@@ -3,6 +3,7 @@ package com.pshipment.pshipment.service.Imp;
 import java.util.List;
 
 import com.pshipment.pshipment.model.Order;
+import com.pshipment.pshipment.repository.BiddingRepository;
 import com.pshipment.pshipment.repository.CustomerRepository;
 import com.pshipment.pshipment.repository.OrderRepository;
 import com.pshipment.pshipment.service.Inter.OrderInter;
@@ -15,7 +16,8 @@ public class OrderImp implements OrderInter {
     private OrderRepository orderRepo;
     @Autowired
     private CustomerRepository customerRepo;
-  
+    @Autowired
+    private BiddingRepository biddingRepo;
     @Override
     public Order create(Order order, int customerId) {
         
@@ -31,5 +33,8 @@ public class OrderImp implements OrderInter {
     public List<Order> getById(int customerId) {
         return orderRepo.findByCustomerId(customerId);
     }
-    
+    @Override
+    public List<Object> getCarriersByOrderId(int orderId) {
+        return orderRepo.getCarriersByOrderId(orderId);
+    }
 }

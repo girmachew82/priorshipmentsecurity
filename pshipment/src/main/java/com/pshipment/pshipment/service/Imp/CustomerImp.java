@@ -13,6 +13,8 @@ import com.pshipment.pshipment.service.Inter.CustomerInter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 @Service
 public class CustomerImp implements CustomerInter {
@@ -37,4 +39,10 @@ private CustomerConvertor convertor;
          List<Customer> library =  customerRepo.findAll();
          return convertor.entityToDto(library);
      }
+     public CustomerDto getById( int customerId) {
+         Customer orElse = customerRepo.findById(customerId).orElse(null);
+         return convertor.entityToDto(orElse);
+         
+     }
+     
 }

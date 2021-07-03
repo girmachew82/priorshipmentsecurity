@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,6 +33,11 @@ public ResponseEntity<Customer> create(@RequestBody Customer customer)
 @GetMapping("/all")
 public List<CustomerDto> All() {
     return customerServiceImp.all();
+    
+}
+@GetMapping("/find/{customerId}")
+public CustomerDto getById(@PathVariable(value = "customerId") int customerId) {
+    return customerServiceImp.getById(customerId);
     
 }
 }
