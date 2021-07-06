@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import javax.transaction.Transactional;
 
+import com.pshipment.pshipment.dto.CarriersOnAnOrder;
+import com.pshipment.pshipment.dto.OrderBiddingCarrierDto;
 import com.pshipment.pshipment.model.Bidding;
 import com.pshipment.pshipment.model.Carrier;
 import com.pshipment.pshipment.model.Order;
@@ -42,5 +44,12 @@ public class BiddingImp implements BiddingInter{
         
        
     }
-
+    @Override
+    public List<CarriersOnAnOrder> getCafrriersOfAnOrder(int orderId) {
+        return biddingRepo.getCarriersOfAnOrder(orderId);
+    }
+    @Override
+    public List<OrderBiddingCarrierDto> getCafrriersOfAnOrder() {
+        return biddingRepo.getCarriersOfAnOrder();
+    }
 }

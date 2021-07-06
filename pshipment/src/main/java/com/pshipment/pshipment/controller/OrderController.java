@@ -35,7 +35,11 @@ public class OrderController {
     }
     @GetMapping("/getByCustomerId/{customerId}")
     public List<Order> getByCustomerId(@PathVariable("customerId") int customerId) {
-        return orderServiceImp.getById(customerId);
+        return orderServiceImp.getByCustomerId(customerId);
+    }
+    @GetMapping("/getById/{orderId}")
+    public Order getById(@PathVariable("orderId") int orderId) {
+        return orderServiceImp.getById(orderId);
     }
     @GetMapping("/getCarriersByOrderId/{orderId}")
     public List<Object>  getCarriersByOrderId(@PathVariable("orderId") int orderId) {

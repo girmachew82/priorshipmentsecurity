@@ -30,8 +30,12 @@ public class OrderImp implements OrderInter {
     }
 
     @Override
-    public List<Order> getById(int customerId) {
+    public List<Order> getByCustomerId(int customerId) {
         return orderRepo.findByCustomerId(customerId);
+    }
+    @Override
+    public Order getById(int orderId) {
+        return orderRepo.findById(orderId).orElse(null);
     }
     @Override
     public List<Object> getCarriersByOrderId(int orderId) {

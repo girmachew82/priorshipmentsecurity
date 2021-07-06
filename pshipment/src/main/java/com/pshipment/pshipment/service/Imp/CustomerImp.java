@@ -6,6 +6,7 @@ import java.util.Set;
 
 import com.pshipment.pshipment.convertor.CustomerConvertor;
 import com.pshipment.pshipment.dto.CustomerDto;
+import com.pshipment.pshipment.dto.CustomerOrder;
 import com.pshipment.pshipment.model.Customer;
 import com.pshipment.pshipment.repository.CustomerRepository;
 import com.pshipment.pshipment.service.Inter.CustomerInter;
@@ -33,7 +34,6 @@ private CustomerConvertor convertor;
          return ResponseEntity.created(location).build();
         // return customer;
      }
-
      @Override
      public List<CustomerDto> all() {
          List<Customer> library =  customerRepo.findAll();
@@ -44,5 +44,13 @@ private CustomerConvertor convertor;
          return convertor.entityToDto(orElse);
          
      }
+    @Override
+    public List<CustomerOrder> getCustomerOrder() {
+        return customerRepo.getCustomerOrders();
+    }
+    @Override
+    public List<CustomerOrder> getCustomerOrder(int customerId) {
+        return customerRepo.getCustomerOrders(customerId);
+    }
      
 }

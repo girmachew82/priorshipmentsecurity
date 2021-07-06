@@ -3,6 +3,8 @@ package com.pshipment.pshipment.dto;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.pshipment.pshipment.model.Carrier;
+import com.pshipment.pshipment.model.Order;
 
 public class OrderBiddingCarrierDto {
     private int orderId;
@@ -34,7 +36,8 @@ public class OrderBiddingCarrierDto {
     private String teamSingle;
     private String unit;
     private String carrieNote;
-
+    private Order order;
+    private Carrier carrier;
     private int carrierId;
     private String fname;
     private String mname;
@@ -241,6 +244,95 @@ public class OrderBiddingCarrierDto {
         return email;
     }
     public void setEmail(String email) {
+        this.email = email;
+    }
+
+    
+    public Order getOrder() {
+        return order;
+    }
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+    public Carrier getCarrier() {
+        return carrier;
+    }
+    public void setCarrier(Carrier carrier) {
+        this.carrier = carrier;
+    }
+    public OrderBiddingCarrierDto() {
+    }
+    
+    public OrderBiddingCarrierDto(int biddingId,int orderId,   int carrierId, float expectedPrice) {
+        this.orderId = orderId;
+        this.biddingId = biddingId;
+        this.expectedPrice = expectedPrice;
+        this.carrierId = carrierId;
+    }
+    
+    public OrderBiddingCarrierDto(int biddingId, String status, float expectedPrice, Date eTAToOrigion,
+            Date eTAToDestination, String teamSingle, String unit, String carrieNote, Order order, Carrier carrier,
+            int carrierId, String fname, String mname, String lname, String address, String mCNumber, String dOTNumber,
+            String companyName, String email) {
+        this.biddingId = biddingId;
+        this.status = status;
+        this.expectedPrice = expectedPrice;
+        this.eTAToOrigion = eTAToOrigion;
+        this.eTAToDestination = eTAToDestination;
+        this.teamSingle = teamSingle;
+        this.unit = unit;
+        this.carrieNote = carrieNote;
+        this.order = order;
+        this.carrier = carrier;
+        this.carrierId = carrierId;
+        this.fname = fname;
+        this.mname = mname;
+        this.lname = lname;
+        this.address = address;
+        this.mCNumber = mCNumber;
+        this.dOTNumber = dOTNumber;
+        this.companyName = companyName;
+        this.email = email;
+    }
+    public OrderBiddingCarrierDto(int orderId, String oLName, String oLpuAddress, String oLzipCode, Date oSrtData,
+            String dLName, String dLpdAddress, String dLzipCode, Date dDnptDate, Long noofUnitShipping,
+            String typeofUnit, Float weight, String dimension, String hazardousness, String cargonotes,
+            String orderType, int biddingId, String status, float expectedPrice, Date eTAToOrigion,
+            Date eTAToDestination, String teamSingle, String unit, String carrieNote, int carrierId, String fname,
+            String mname, String lname, String address, String mCNumber, String dOTNumber, String companyName,
+            String email) {
+        this.orderId = orderId;
+        this.oLName = oLName;
+        this.oLpuAddress = oLpuAddress;
+        this.oLzipCode = oLzipCode;
+        this.oSrtData = oSrtData;
+        this.dLName = dLName;
+        this.dLpdAddress = dLpdAddress;
+        this.dLzipCode = dLzipCode;
+        this.dDnptDate = dDnptDate;
+        this.noofUnitShipping = noofUnitShipping;
+        this.typeofUnit = typeofUnit;
+        this.weight = weight;
+        this.dimension = dimension;
+        this.hazardousness = hazardousness;
+        this.cargonotes = cargonotes;
+        this.orderType = orderType;
+        this.biddingId = biddingId;
+        this.status = status;
+        this.expectedPrice = expectedPrice;
+        this.eTAToOrigion = eTAToOrigion;
+        this.eTAToDestination = eTAToDestination;
+        this.teamSingle = teamSingle;
+        this.unit = unit;
+        this.carrieNote = carrieNote;
+        this.carrierId = carrierId;
+        this.fname = fname;
+        this.mname = mname;
+        this.lname = lname;
+        this.address = address;
+        this.mCNumber = mCNumber;
+        this.dOTNumber = dOTNumber;
+        this.companyName = companyName;
         this.email = email;
     }
     

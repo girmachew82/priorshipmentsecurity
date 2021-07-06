@@ -3,6 +3,7 @@ package com.pshipment.pshipment.controller;
 import java.util.List;
 
 import com.pshipment.pshipment.dto.CustomerDto;
+import com.pshipment.pshipment.dto.CustomerOrder;
 import com.pshipment.pshipment.model.Customer;
 import com.pshipment.pshipment.service.Imp.CustomerImp;
 
@@ -38,6 +39,16 @@ public List<CustomerDto> All() {
 @GetMapping("/find/{customerId}")
 public CustomerDto getById(@PathVariable(value = "customerId") int customerId) {
     return customerServiceImp.getById(customerId);
+    
+}
+@GetMapping("/customerOrder")
+public List<CustomerOrder> getCustomerOrder() {
+    return customerServiceImp.getCustomerOrder();
+    
+}
+@GetMapping("/customerOrder/{customerId}")
+public List<CustomerOrder> getCustomerOrder(@PathVariable(value = "customerId") int customerId) {
+    return customerServiceImp.getCustomerOrder(customerId);
     
 }
 }

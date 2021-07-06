@@ -6,7 +6,8 @@ import com.pshipment.pshipment.model.Order;
 
 public interface OrderInter {
   Order create(Order order, int customerId);
-  List<Order> getById(int customerId);
+  List<Order> getByCustomerId(int customerId);
   List<Object> getCarriersByOrderId(int orderId);
+  Order getById(int orderId);
 
 }
