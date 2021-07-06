@@ -5,7 +5,15 @@ import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class CarriersOnAnOrder {
-    private int orderId;
+    private int carrierId;
+    private String fname;
+    private String mname;
+    private String lname;
+    private String address;
+    private String mCNumber;
+    private String dOTNumber;
+    private String companyName;
+    private String email;
     private int biddingId;
     private String status;
     private float expectedPrice;
@@ -16,21 +24,8 @@ public class CarriersOnAnOrder {
     private String teamSingle;
     private String unit;
     private String carrieNote;
-    private int carrierId;
-    private String fname;
-    private String mname;
-    private String lname;
-    private String address;
-    private String mCNumber;
-    private String dOTNumber;
-    private String companyName;
-    private String email;
-    public int getOrderId() {
-        return orderId;
-    }
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
-    }
+ 
+
     public int getBiddingId() {
         return biddingId;
     }
@@ -141,11 +136,11 @@ public class CarriersOnAnOrder {
         this.carrierId = carrierId;
         this.expectedPrice = expectedPrice;
     }
-    public CarriersOnAnOrder(int orderId, int biddingId, String status, float expectedPrice, Date eTAToOrigion,
-            Date eTAToDestination, String teamSingle, String unit, String carrieNote, int carrierId, String fname,
-            String mname, String lname, String address, String mCNumber, String dOTNumber, String companyName,
-            String email) {
-        this.orderId = orderId;
+ 
+    public CarriersOnAnOrder(int carrierId, String fname,
+    String mname, String lname, String address, String mCNumber, String dOTNumber, String companyName,
+    String email, int biddingId, float expectedPrice, Date eTAToOrigion,
+            Date eTAToDestination, String teamSingle, String unit, String carrieNote, String status ) {
         this.biddingId = biddingId;
         this.status = status;
         this.expectedPrice = expectedPrice;
