@@ -2,6 +2,7 @@ package com.pshipment.pshipment.service.Inter;
 
 import java.util.List;
 
+import com.pshipment.pshipment.dto.OrdersDto;
 import com.pshipment.pshipment.model.Order;
 
 public interface OrderInter {
@@ -9,5 +10,5 @@ public interface OrderInter {
   List<Order> getByCustomerId(int customerId);
   List<Object> getCarriersByOrderId(int orderId);
   Order getById(int orderId);
-
+  List<OrdersDto> getOrders();
 }
