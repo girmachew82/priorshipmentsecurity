@@ -25,7 +25,6 @@ public class CarriersOnAnOrder {
     private String unit;
     private String carrieNote;
  
-
     public int getBiddingId() {
         return biddingId;
     }

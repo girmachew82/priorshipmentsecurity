@@ -2,6 +2,7 @@ package com.pshipment.pshipment.service.Inter;
 
 import java.util.List;
 
+import com.pshipment.pshipment.dto.AwardedCarrier;
 import com.pshipment.pshipment.dto.CarriersOnAnOrder;
 import com.pshipment.pshipment.dto.OrderBiddingCarrierDto;
 import com.pshipment.pshipment.model.Bidding;
@@ -11,5 +12,5 @@ public interface BiddingInter {
     int award(int biddingId, String response);
     List<CarriersOnAnOrder> getCafrriersOfAnOrder(int orderId);
     List<OrderBiddingCarrierDto> getCafrriersOfAnOrder();
-
+    CarriersOnAnOrder getAwardedCarrier(int orderId, String status);
 }
