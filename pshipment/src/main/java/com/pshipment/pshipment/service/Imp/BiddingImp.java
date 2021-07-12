@@ -54,8 +54,8 @@ public class BiddingImp implements BiddingInter{
         return biddingRepo.getCarriersOfAnOrder();
     }
     @Override
-    public CarriersOnAnOrder getAwardedCarrier(int orderId, String status) {
-         return biddingRepo.getAwardedCarrier(orderId, status);
+    public AwardedCarrier getAwardedCarrier(String status) {
+         return biddingRepo.getAwardedCarrier(status);
     }
 
 }

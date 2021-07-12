@@ -22,10 +22,12 @@ public interface BiddingRepository extends JpaRepository<Bidding, Integer> {
     @Query("SELECT new com.pshipment.pshipment.dto.CarriersOnAnOrder(c.carrierId,c.fname,c.mname,c.lname,c.address,c.mCNumber,c.dOTNumber,c.companyName,c.email,b.biddingId,b.expectedPrice,b.eTAToOrigion,b.eTAToDestination,b.teamSingle,b.unit,b.carrieNote,b.status) FROM Bidding b JOIN b.carrier c JOIN b.order o WHERE o.orderId =:orderId")
     List<CarriersOnAnOrder> getCarriersOfAnOrder(@Param("orderId") int orderId);
 
-    @Query("SELECT new com.pshipment.pshipment.dto.CarriersOnAnOrder(c.carrierId,c.fname,c.mname,c.lname,c.address,c.mCNumber,c.dOTNumber,c.companyName,c.email,b.biddingId,b.expectedPrice,b.eTAToOrigion,b.eTAToDestination,b.teamSingle,b.unit,b.carrieNote,b.status) FROM Bidding b JOIN b.carrier c JOIN b.order o WHERE o.orderId =:orderId AND b.status=:status")
-    CarriersOnAnOrder getAwardedCarrier(@Param("orderId") int orderId,@Param("status") String status);
+    @Query("SELECT new com.pshipment.pshipment.dto.AwardedCarrier(c.carrierId,c.fname,c.mname,c.lname,c.address,c.mCNumber,c.dOTNumber,c.companyName,c.email) FROM Bidding b JOIN b.carrier c JOIN b.order o WHERE  b.status=:status ")
+     AwardedCarrier getAwardedCarrier(@Param("status") String status);
 
     @Query("SELECT new com.pshipment.pshipment.dto.OrderBiddingCarrierDto(b.biddingId,o.orderId,c.carrierId,b.expectedPrice) FROM Bidding b JOIN b.carrier c JOIN b.order o ")
     List<OrderBiddingCarrierDto> getCarriersOfAnOrder();
     // Get Bidding by status
+    @Query(value = "SELECT b FROM Bidding b WHERE biddingId =:biddingId")
+    Bidding getById(@Param("biddingId") int biddingId);
 }

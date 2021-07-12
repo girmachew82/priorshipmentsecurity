@@ -1,7 +1,6 @@
 package com.pshipment.pshipment.dto;
 
 public class AwardedCarrier {
-    private int orderId;
     private int carrierId;
     private String fname;
     private String mname;
@@ -11,13 +10,6 @@ public class AwardedCarrier {
     private String dOTNumber;
     private String companyName;
     private String email;
-    private String status;
-    public int getOrderId() {
-        return orderId;
-    }
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
-    }
     public int getCarrierId() {
         return carrierId;
     }
@@ -72,17 +64,10 @@ public class AwardedCarrier {
     public void setEmail(String email) {
         this.email = email;
     }
-    public String getStatus() {
-        return status;
-    }
-    public void setStatus(String status) {
-        this.status = status;
-    }
     public AwardedCarrier() {
     }
-    public AwardedCarrier(int orderId, int carrierId, String fname, String mname, String lname, String address,
-            String mCNumber, String dOTNumber, String companyName, String email, String status) {
-        this.orderId = orderId;
+    public AwardedCarrier(int carrierId, String fname, String mname, String lname, String address, String mCNumber,
+            String dOTNumber, String companyName, String email) {
         this.carrierId = carrierId;
         this.fname = fname;
         this.mname = mname;
@@ -92,7 +77,8 @@ public class AwardedCarrier {
         this.dOTNumber = dOTNumber;
         this.companyName = companyName;
         this.email = email;
-        this.status = status;
     }
+ 
+
    
 }

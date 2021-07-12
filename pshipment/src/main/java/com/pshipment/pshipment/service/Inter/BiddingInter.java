@@ -12,5 +12,5 @@ public interface BiddingInter {
     int award(int biddingId, String response);
     List<CarriersOnAnOrder> getCafrriersOfAnOrder(int orderId);
     List<OrderBiddingCarrierDto> getCafrriersOfAnOrder();
-    CarriersOnAnOrder getAwardedCarrier(int orderId, String status);
+    AwardedCarrier getAwardedCarrier(String status);
 }

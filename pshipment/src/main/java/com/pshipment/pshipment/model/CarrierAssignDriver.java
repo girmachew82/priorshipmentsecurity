@@ -28,10 +28,7 @@ public class CarrierAssignDriver {
     @JoinColumn(name = "bidding_id")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Bidding bidding;
-
-    @OneToMany(mappedBy = "carrierAssignDriver", cascade = CascadeType.ALL)
-    private Set<Driver> drivers = new HashSet<>();
-
+    private int driverId;
     public int getAssignId() {
         return assignId;
     }
@@ -48,18 +45,21 @@ public class CarrierAssignDriver {
         this.bidding = bidding;
     }
 
-    public Set<Driver> getDrivers() {
-        return drivers;
+    public int getDriverId() {
+        return driverId;
     }
 
-    public void setDrivers(Set<Driver> drivers) {
-        this.drivers = drivers;
+    public void setDriverId(int driverId) {
+        this.driverId = driverId;
     }
 
-    public CarrierAssignDriver(int assignId, Bidding bidding, Set<Driver> drivers) {
+    public CarrierAssignDriver() {
+    }
+
+    public CarrierAssignDriver(int assignId, Bidding bidding, int driverId) {
         this.assignId = assignId;
         this.bidding = bidding;
-        this.drivers = drivers;
+        this.driverId = driverId;
     }
-    
+
 }

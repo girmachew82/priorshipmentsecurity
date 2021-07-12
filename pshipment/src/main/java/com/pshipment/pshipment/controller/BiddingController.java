@@ -50,9 +50,9 @@ public class BiddingController {
         return biddingImp.award(biddingId,status);
         //return biddingId+status.length();
    }
-   @GetMapping("/order/{orderId}/{status}/status")
-   public CarriersOnAnOrder getAwardedCarrier(@PathVariable("orderId") int orderId,@PathVariable("status") String status) {
-    return biddingImp.getAwardedCarrier(orderId, status);
+   @GetMapping("/{status}/status")
+   public AwardedCarrier getAwardedCarrier(@PathVariable("status") String status) {
+    return biddingImp.getAwardedCarrier( status);
   
    }
 }
