@@ -2,6 +2,7 @@ package com.pshipment.pshipment.controller;
 
 import java.util.List;
 
+import com.pshipment.pshipment.dto.AwardedCarrier;
 import com.pshipment.pshipment.dto.CarriersOnAnOrder;
 import com.pshipment.pshipment.dto.OrderBiddingCarrierDto;
 import com.pshipment.pshipment.model.Bidding;
@@ -43,6 +44,15 @@ public class BiddingController {
     @GetMapping("/carriersofAnOrder")
     public List<OrderBiddingCarrierDto> getCarriersOfABid() {
         return biddingImp.getCafrriersOfAnOrder();
-
     }
+    @PutMapping("/award/{biddingId}/{status}/status")
+    public int updateStatus(@PathVariable("biddingId") int biddingId, @PathVariable("status") String status) {
+        return biddingImp.award(biddingId,status);
+        //return biddingId+status.length();
+   }
+   @GetMapping("/{status}/status")
+   public AwardedCarrier getAwardedCarrier(@PathVariable("status") String status) {
+    return biddingImp.getAwardedCarrier( status);
+  
+   }
 }

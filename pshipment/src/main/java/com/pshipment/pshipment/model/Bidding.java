@@ -153,6 +153,10 @@ public class Bidding {
         this.order = order;
         this.carrier = carrier;
         this.drivers = drivers;
+    }
+
+    public Object findById(int biddingId2) {
+        return null;
     } 
     
 }

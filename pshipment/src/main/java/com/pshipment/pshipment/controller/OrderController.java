@@ -2,6 +2,7 @@ package com.pshipment.pshipment.controller;
 
 import java.util.List;
 
+import com.pshipment.pshipment.dto.OrdersDto;
 import com.pshipment.pshipment.model.Order;
 import com.pshipment.pshipment.service.Imp.CustomerImp;
 import com.pshipment.pshipment.service.Imp.OrderImp;
@@ -26,6 +27,11 @@ public class OrderController {
 
     @Autowired
     private CustomerImp customerServiceImp;
+
+    @GetMapping("/all")
+    public List<OrdersDto>  getOrders() {
+        return orderServiceImp.getOrders();
+    }
     // Insert order record
     @PostMapping("/add/customer/{customerId}")
     @ResponseStatus(HttpStatus.CREATED)

@@ -28,12 +28,12 @@ public class Driver {
     @JsonIgnore
     @JoinColumn(name="carrier_id",nullable = false)
     private Carrier carrier;
-
+/*
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "assign_id")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private CarrierAssignDriver carrierAssignDriver;
-
+*/
     public int getDriverId() {
         return driverId;
     }
@@ -81,7 +81,7 @@ public class Driver {
     public void setCarrier(Carrier carrier) {
         this.carrier = carrier;
     }
-
+/*
     public CarrierAssignDriver getCarrierAssignDriver() {
         return carrierAssignDriver;
     }
@@ -89,20 +89,20 @@ public class Driver {
     public void setCarrierAssignDriver(CarrierAssignDriver carrierAssignDriver) {
         this.carrierAssignDriver = carrierAssignDriver;
     }
-
+*/
     public Driver() {
     }
 
     public Driver(int driverId, String firstName, String middleName, String lastName, String phoneNumber,
-            Carrier carrier, CarrierAssignDriver carrierAssignDriver) {
+            Carrier carrier) {
         this.driverId = driverId;
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.carrier = carrier;
-        this.carrierAssignDriver = carrierAssignDriver;
     }
+
 
     
 }

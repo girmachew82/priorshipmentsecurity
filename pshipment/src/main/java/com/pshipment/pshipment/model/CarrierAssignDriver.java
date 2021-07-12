@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 
@@ -26,40 +27,37 @@ public class CarrierAssignDriver {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "bidding_id")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonIgnore
     private Bidding bidding;
-
-    @OneToMany(mappedBy = "carrierAssignDriver", cascade = CascadeType.ALL)
-    private Set<Driver> drivers = new HashSet<>();
-
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JsonIgnore
+    @JoinColumn(name="driverId", referencedColumnName = "driverId")
+    private Driver driverId;
     public int getAssignId() {
         return assignId;
     }
-
     public void setAssignId(int assignId) {
         this.assignId = assignId;
     }
-
     public Bidding getBidding() {
         return bidding;
     }
-
     public void setBidding(Bidding bidding) {
         this.bidding = bidding;
     }
-
-    public Set<Driver> getDrivers() {
-        return drivers;
+    public Driver getDriverId() {
+        return driverId;
     }
-
-    public void setDrivers(Set<Driver> drivers) {
-        this.drivers = drivers;
+    public void setDriverId(Driver driverId) {
+        this.driverId = driverId;
     }
-
-    public CarrierAssignDriver(int assignId, Bidding bidding, Set<Driver> drivers) {
+    public CarrierAssignDriver() {
+    }
+    public CarrierAssignDriver(int assignId, Bidding bidding, Driver driverId) {
         this.assignId = assignId;
         this.bidding = bidding;
-        this.drivers = drivers;
+        this.driverId = driverId;
     }
-    
+  
+
 }
