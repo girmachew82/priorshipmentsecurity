@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import com.pshipment.pshipment.dto.DriversforAnOrder;
+import com.pshipment.pshipment.dto.DriversforAnOrderDto;
 import com.pshipment.pshipment.model.Bidding;
 import com.pshipment.pshipment.model.CarrierAssignDriver;
 import com.pshipment.pshipment.model.Driver;
@@ -30,11 +30,11 @@ public CarrierAssignDriver assign(CarrierAssignDriver assignDriver, int biddingI
     Bidding bidding = biddingRepo.getById(biddingId);
     assignDriver.setBidding(bidding);
     Driver driver = driverRepo.findById(driverId).get();
-    assignDriver.setDriverId(driver);
+    assignDriver.setDriver(driver);
     return carrierAssignDriverRepo.save(assignDriver);
 }
 @Override
-public List<Object> getDriverforAnOrder(int biddingId) {
+public List<DriversforAnOrderDto> getDriverforAnOrder(int biddingId) {
 
     return carrierAssignDriverRepo.getDriverforAnOrder(biddingId);
 }
