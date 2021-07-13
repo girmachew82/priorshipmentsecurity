@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class CarrierAssignDriver {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int assignId;
+    private Integer assignId;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "bidding_id")
@@ -32,11 +32,11 @@ public class CarrierAssignDriver {
     @ManyToOne(cascade = CascadeType.ALL)
     @JsonIgnore
     @JoinColumn(name="driverId", referencedColumnName = "driverId")
-    private Driver driverId;
-    public int getAssignId() {
+    private Driver driver;
+    public Integer getAssignId() {
         return assignId;
     }
-    public void setAssignId(int assignId) {
+    public void setAssignId(Integer assignId) {
         this.assignId = assignId;
     }
     public Bidding getBidding() {
@@ -45,19 +45,21 @@ public class CarrierAssignDriver {
     public void setBidding(Bidding bidding) {
         this.bidding = bidding;
     }
-    public Driver getDriverId() {
-        return driverId;
+    public Driver getDriver() {
+        return driver;
     }
-    public void setDriverId(Driver driverId) {
-        this.driverId = driverId;
+    public void setDriver(Driver driver) {
+        this.driver = driver;
     }
     public CarrierAssignDriver() {
     }
-    public CarrierAssignDriver(int assignId, Bidding bidding, Driver driverId) {
+    public CarrierAssignDriver(Integer assignId, Bidding bidding, Driver driver) {
         this.assignId = assignId;
         this.bidding = bidding;
-        this.driverId = driverId;
+        this.driver = driver;
     }
-  
+
+    
+
 
 }

@@ -30,7 +30,7 @@ public CarrierAssignDriver assign(CarrierAssignDriver assignDriver, int biddingI
     Bidding bidding = biddingRepo.getById(biddingId);
     assignDriver.setBidding(bidding);
     Driver driver = driverRepo.findById(driverId).get();
-    assignDriver.setDriverId(driver);
+    assignDriver.setDriver(driver);
     return carrierAssignDriverRepo.save(assignDriver);
 }
 @Override
