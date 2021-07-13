@@ -2,8 +2,9 @@ package com.pshipment.pshipment.controller;
 
 import java.util.List;
 
-import com.pshipment.pshipment.dto.DriversforAnOrder;
+import com.pshipment.pshipment.dto.DriversforAnOrderDto;
 import com.pshipment.pshipment.model.CarrierAssignDriver;
+import com.pshipment.pshipment.model.Driver;
 import com.pshipment.pshipment.service.Imp.CarrierAssignDriverImp;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class AssignDriverController {
         return assignDriverImp.assign(carrierAssignDriver, biddingId, driverId);
     }
     @GetMapping("/getDrivers/{biddingId}")
-    public List<Object> getDriversforAnOrder(@PathVariable("biddingId") int biddingId){
+    public List<DriversforAnOrderDto> getDriversforAnOrder(@PathVariable("biddingId") int biddingId){
     return assignDriverImp.getDriverforAnOrder(biddingId);
     }
 }

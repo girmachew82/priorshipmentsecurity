@@ -2,10 +2,11 @@ package com.pshipment.pshipment.service.Inter;
 
 import java.util.List;
 
-import com.pshipment.pshipment.dto.DriversforAnOrder;
+import com.pshipment.pshipment.dto.DriversforAnOrderDto;
 import com.pshipment.pshipment.model.CarrierAssignDriver;
+import com.pshipment.pshipment.model.Driver;
 
 public interface CarrierAssignDriverInter {
     CarrierAssignDriver assign(CarrierAssignDriver assignDriver,int  biddingId, int driverId);
-    List<Object> getDriverforAnOrder(int biddingId);
+    List<DriversforAnOrderDto> getDriverforAnOrder(int biddingId);
 }

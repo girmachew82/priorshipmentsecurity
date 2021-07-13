@@ -1,6 +1,6 @@
 package com.pshipment.pshipment.dto;
 
-public class DriversforAnOrder {
+public class DriversforAnOrderDto {
     private int driverId;
     private String firstName;
     private String middleName;
@@ -36,9 +36,9 @@ public class DriversforAnOrder {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-    public DriversforAnOrder() {
+    public DriversforAnOrderDto() {
     }
-    public DriversforAnOrder(int driverId, String firstName, String middleName, String lastName, String phoneNumber) {
+    public DriversforAnOrderDto(int driverId, String firstName, String middleName, String lastName, String phoneNumber) {
         this.driverId = driverId;
         this.firstName = firstName;
         this.middleName = middleName;
