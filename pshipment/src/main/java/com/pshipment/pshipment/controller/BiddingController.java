@@ -30,9 +30,9 @@ public class BiddingController {
         return biddingImp.create(bidding, orderId, carrierId);
     }
 
-    @PutMapping("/update/biddingId/{biddingId}/status/{status}")
-    public int award(@PathVariable("biddingId") int biddingId, @PathVariable("status") String status) {
-        return biddingImp.award(biddingId, status);
+    @PutMapping("/biddingId/{biddingId}/award/{award}")
+    public int award(@PathVariable("biddingId") int biddingId, @PathVariable("award") String award) {
+        return biddingImp.award(biddingId, award);
 
     }
 

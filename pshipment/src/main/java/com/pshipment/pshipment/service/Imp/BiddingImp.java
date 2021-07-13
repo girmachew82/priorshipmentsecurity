@@ -38,10 +38,10 @@ public class BiddingImp implements BiddingInter{
         return biddingRepo.save(bidding);
     }
     @Override
-    public int award(int biddingId, String status) {
+    public int award(int biddingId, String award) {
         Optional<Bidding> bidding = biddingRepo.findById(biddingId);
 
-            return biddingRepo.updatestatusRepo(biddingId, status);
+            return biddingRepo.updatestatusRepo(biddingId, award);
         
        
     }

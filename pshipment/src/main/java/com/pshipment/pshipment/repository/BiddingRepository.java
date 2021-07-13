@@ -16,8 +16,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface BiddingRepository extends JpaRepository<Bidding, Integer> {
     @Modifying(clearAutomatically = true)
-    @Query("UPDATE Bidding b SET b.status = :status WHERE b.biddingId = :biddingId")
-    public int updatestatusRepo(@Param("biddingId") int biddingId, @Param("status") String status);
+    @Query("UPDATE Bidding b SET b.status = :award WHERE b.biddingId = :biddingId")
+    public int updatestatusRepo(@Param("biddingId") int biddingId, @Param("award") String award);
 
     @Query("SELECT new com.pshipment.pshipment.dto.CarriersOnAnOrder(c.carrierId,c.fname,c.mname,c.lname,c.address,c.mCNumber,c.dOTNumber,c.companyName,c.email,b.biddingId,b.expectedPrice,b.eTAToOrigion,b.eTAToDestination,b.teamSingle,b.unit,b.carrieNote,b.status) FROM Bidding b JOIN b.carrier c JOIN b.order o WHERE o.orderId =:orderId")
     List<CarriersOnAnOrder> getCarriersOfAnOrder(@Param("orderId") int orderId);
