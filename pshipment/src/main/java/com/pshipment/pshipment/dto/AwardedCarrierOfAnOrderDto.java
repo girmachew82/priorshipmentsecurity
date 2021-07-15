@@ -24,6 +24,7 @@ public class AwardedCarrierOfAnOrderDto {
     private String teamSingle;
     private String unit;
     private String carrieNote;
+    
     public int getCarrierId() {
         return carrierId;
     }

@@ -63,5 +63,18 @@ public class BiddingDto {
     public void setCarrieNote(String carrieNote) {
         this.carrieNote = carrieNote;
     }
+    public BiddingDto() {
+    }
+    public BiddingDto(int biddingId,  float expectedPrice, Date eTAToOrigion, Date eTAToDestination,
+            String teamSingle, String unit, String carrieNote,String status) {
+        this.biddingId = biddingId;
+        this.status = status;
+        this.expectedPrice = expectedPrice;
+        this.eTAToOrigion = eTAToOrigion;
+        this.eTAToDestination = eTAToDestination;
+        this.teamSingle = teamSingle;
+        this.unit = unit;
+        this.carrieNote = carrieNote;
+    }
     
 }

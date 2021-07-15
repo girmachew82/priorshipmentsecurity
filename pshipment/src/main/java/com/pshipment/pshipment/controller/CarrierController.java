@@ -39,8 +39,8 @@ public class CarrierController {
         return carrierServiceImp.getBidByCarrierId(carrierId);
     }
     @GetMapping("/awardedCarrier/orderId/{orderId}/award/{award}")
-    public AwardedCarrierOfAnOrderDto getAwardedCarrierOfAnOder(@Param("orderId") int orderId,@Param("award") String award) {
-        return null;
+    public AwardedCarrierOfAnOrderDto getAwardedCarrierOfAnOder(@PathVariable("orderId") int orderId,@PathVariable("award") String award) {
+        return carrierServiceImp.getAwardedCarrierOfAnOrder(orderId, award);
         
         
     }

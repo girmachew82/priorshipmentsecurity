@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.pshipment.pshipment.dto.AwardedCarrierDto;
 import com.pshipment.pshipment.dto.AwardedOrderDto;
+import com.pshipment.pshipment.dto.BiddingDto;
 import com.pshipment.pshipment.dto.CarriersOnAnOrder;
 import com.pshipment.pshipment.dto.OrderBiddingCarrierDto;
 import com.pshipment.pshipment.model.Bidding;
@@ -68,9 +69,9 @@ public class BiddingController {
     return biddingImp.getAwardedOrder2(biddingId);
        
    }
-   @GetMapping("/award/{award}")
-   public Bidding getByOrderIdAndAward(@PathVariable("award") String award) {
-    return biddingImp.getByOrderIdAndAward(award);
+   @GetMapping("/orderId/{orderId}/award/{award}")
+   public BiddingDto getByOrderIdAndAward(@PathVariable("orderId") int orderId,@PathVariable("award") String award) {
+    return biddingImp.getByOrderIdAndAward(orderId,award);
        
    }
 

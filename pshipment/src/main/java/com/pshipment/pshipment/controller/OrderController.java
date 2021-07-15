@@ -5,6 +5,7 @@ import java.util.List;
 import com.pshipment.pshipment.dto.AwardedCarrierDto;
 import com.pshipment.pshipment.dto.AwardedCarrierOfAnOrderDto;
 import com.pshipment.pshipment.dto.AwardedOrderDto;
+import com.pshipment.pshipment.dto.BiddingDto;
 import com.pshipment.pshipment.dto.CarriersOnAnOrder;
 import com.pshipment.pshipment.dto.DriverDto;
 import com.pshipment.pshipment.dto.DriversforAnOrderDto;
@@ -83,18 +84,20 @@ public class OrderController {
         AwardedOrderDto awardedOrderDto = new AwardedOrderDto();
 
         OrderDto orderDto = orderServiceImp.findByOrderId(orderId);
-       // AwardedCarrierOfAnOrderDto awardedCarrier  = carrierServiceImp.getAwardedCarrierOfAnOrder(orderId,award);
+      // AwardedCarrierOfAnOrderDto awardedCarrier  = carrierServiceImp.getAwardedCarrierOfAnOrder(orderId,award);
        // AwardedCarrierOfAnOrderDto carrier = carrierServiceImp.getAwardedCarrierOfAnOrder(orderId,award);
        // List<Driver> driver = driverServiceImp.getDriverByCarrierId();
-        awardedOrderDto.setOrder(orderDto);
-        //List<Driver> driverDto = driverServiceImp.getCarrierId();
-       // awardedOrderDto.setDriversDto(driverDto);
-        awardedOrderDto.setOrder(orderDto);
-      //  int biddingId = awardedCarrier.getBiddingId();
+        
+       awardedOrderDto.setOrder(orderDto);
+       BiddingDto  bidding = biddingServiceImp.getByOrderIdAndAward(orderId, award);
+       awardedOrderDto.setBiddingId(bidding.getBiddingId());
+       awardedOrderDto.setExpectedPrice(bidding.getExpectedPrice());
+        List<DriversforAnOrderDto> drivers = assignImp.getDriverforAnOrder(orderId);
+        awardedOrderDto.setDriversDto(drivers);
+        
+       //int biddingId = awardedCarrier.getBiddingId();
  
-
-        //List<DriversforAnOrderDto> drivers= assignImp.getDriverforAnOrder(biddingId);
-        //awardedOrderDto.setCarrierOnAnOrder(awardedCarrier);
+      //   awardedOrderDto.setCarrierId(awardedCarrier.getCarrierId());
        // awardedOrderDto.setCarrierId(carrier);
        // awardedOrderDto.setDriversDto(drivers);
 

@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 
 import com.pshipment.pshipment.dto.AwardedCarrierDto;
 import com.pshipment.pshipment.dto.AwardedOrderDto;
+import com.pshipment.pshipment.dto.BiddingDto;
 import com.pshipment.pshipment.dto.CarriersOnAnOrder;
 import com.pshipment.pshipment.dto.OrderBiddingCarrierDto;
 import com.pshipment.pshipment.model.Bidding;
@@ -69,8 +70,8 @@ public class BiddingImp implements BiddingInter{
         return biddingRepo.getAwardedOrder(biddingId);
     }
     @Override
-    public Bidding getByOrderIdAndAward( String award) {
-        return biddingRepo.getByOrderIdAndAward( award);
+    public BiddingDto getByOrderIdAndAward( int orderId,String award) {
+        return biddingRepo.getByOrderIdAndAward(orderId,award);
     }
 
 }
