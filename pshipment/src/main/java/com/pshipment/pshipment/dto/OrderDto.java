@@ -9,7 +9,6 @@ public class OrderDto {
     private String oLName;
     private String oLpuAddress;
     private String oLzipCode;
-/*
     @JsonFormat(pattern = "MM-dd-yyyy HH:mm:ss")
     private Date oSrtData;
     private String dLName;
@@ -25,8 +24,6 @@ public class OrderDto {
     private String cargonotes;
     private String orderType;
     private String status;
-    private Customer customer;
-*/
     public int getOrderId() {
         return orderId;
     }
@@ -51,7 +48,6 @@ public class OrderDto {
     public void setoLzipCode(String oLzipCode) {
         this.oLzipCode = oLzipCode;
     }
-    /*
     public Date getoSrtData() {
         return oSrtData;
     }
@@ -130,12 +126,28 @@ public class OrderDto {
     public void setStatus(String status) {
         this.status = status;
     }
-    public Customer getCustomer() {
-        return customer;
+    public OrderDto() {
     }
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public OrderDto(int orderId, String oLName, String oLpuAddress, String oLzipCode, Date oSrtData, String dLName,
+            String dLpdAddress, String dLzipCode, Date dDnptDate, Long noofUnitShipping, String typeofUnit,
+            Float weight, String dimension, String hazardousness, String cargonotes, String orderType, String status) {
+        this.orderId = orderId;
+        this.oLName = oLName;
+        this.oLpuAddress = oLpuAddress;
+        this.oLzipCode = oLzipCode;
+        this.oSrtData = oSrtData;
+        this.dLName = dLName;
+        this.dLpdAddress = dLpdAddress;
+        this.dLzipCode = dLzipCode;
+        this.dDnptDate = dDnptDate;
+        this.noofUnitShipping = noofUnitShipping;
+        this.typeofUnit = typeofUnit;
+        this.weight = weight;
+        this.dimension = dimension;
+        this.hazardousness = hazardousness;
+        this.cargonotes = cargonotes;
+        this.orderType = orderType;
+        this.status = status;
     }
-    
-*/
+
 }

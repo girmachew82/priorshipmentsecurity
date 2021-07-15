@@ -2,6 +2,7 @@ package com.pshipment.pshipment.service.Imp;
 
 import java.util.List;
 
+import com.pshipment.pshipment.dto.OrderDto;
 import com.pshipment.pshipment.dto.OrdersDto;
 import com.pshipment.pshipment.model.Order;
 import com.pshipment.pshipment.repository.BiddingRepository;
@@ -29,11 +30,12 @@ public class OrderImp implements OrderInter {
         }).orElseThrow();
 
     }
-
+/*
     @Override
     public List<Order> getByCustomerId(int customerId) {
         return orderRepo.findByCustomerId(customerId);
     }
+    */
     @Override
     public Order getById(int orderId) {
         return orderRepo.findById(orderId).orElse(null);
@@ -42,9 +44,23 @@ public class OrderImp implements OrderInter {
     public List<Object> getCarriersByOrderId(int orderId) {
         return orderRepo.getCarriersByOrderId(orderId);
     }
+    @Override
+    public Object getCarrierByOrderId(int orderId) {
+        return orderRepo.getCarrierByOrderId(orderId);
+    }
 
     @Override
     public List<OrdersDto> getOrders() {
         return orderRepo.getOrders();
+    }
+
+    @Override
+    public List<Order> getByCustomerId(int customerId, String award) {
+        return orderRepo.findByCustomerId(customerId, award);
+    }
+    @Override
+    public OrderDto findByOrderId(int orderId) {
+        
+        return orderRepo.findByOrderId(orderId);
     }
 }

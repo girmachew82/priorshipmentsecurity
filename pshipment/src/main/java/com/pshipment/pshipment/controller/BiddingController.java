@@ -2,7 +2,8 @@ package com.pshipment.pshipment.controller;
 
 import java.util.List;
 
-import com.pshipment.pshipment.dto.AwardedCarrier;
+import com.pshipment.pshipment.dto.AwardedCarrierDto;
+import com.pshipment.pshipment.dto.AwardedOrderDto;
 import com.pshipment.pshipment.dto.CarriersOnAnOrder;
 import com.pshipment.pshipment.dto.OrderBiddingCarrierDto;
 import com.pshipment.pshipment.model.Bidding;
@@ -51,8 +52,26 @@ public class BiddingController {
         //return biddingId+status.length();
    }
    @GetMapping("/{status}/status")
-   public AwardedCarrier getAwardedCarrier(@PathVariable("status") String status) {
+   public AwardedCarrierDto getAwardedCarrier(@PathVariable("status") String status) {
     return biddingImp.getAwardedCarrier( status);
   
    }
+   /*
+   @GetMapping("/orderId/{orderId}/award/{award}")
+   public List<AwardedOrderDto> getAwardedOrder(@PathVariable("orderId") int orderId, @PathVariable("award") String award) {
+    return biddingImp.getAwardedOrder(orderId, award);
+       
+   }
+   */
+   @GetMapping("/biddingId/{biddingId}")
+   public List<AwardedOrderDto> getAwardedOrder2(@PathVariable("biddingId") int biddingId) {
+    return biddingImp.getAwardedOrder2(biddingId);
+       
+   }
+   @GetMapping("/award/{award}")
+   public Bidding getByOrderIdAndAward(@PathVariable("award") String award) {
+    return biddingImp.getByOrderIdAndAward(award);
+       
+   }
+
 }

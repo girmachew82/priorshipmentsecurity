@@ -2,6 +2,7 @@ package com.pshipment.pshipment.service.Imp;
 
 import java.util.List;
 
+import com.pshipment.pshipment.dto.AwardedCarrierOfAnOrderDto;
 import com.pshipment.pshipment.dto.BiddingByCarrier;
 import com.pshipment.pshipment.dto.CarrierDto;
 import com.pshipment.pshipment.model.Carrier;
@@ -30,6 +31,10 @@ public class CarrierImp implements CarrierInter{
     @Override
     public List<BiddingByCarrier> getBidByCarrierId(int carrierId) {
         return carrierRepo.getBidByCarrier(carrierId);
+    }
+    @Override
+    public AwardedCarrierOfAnOrderDto getAwardedCarrierOfAnOrder(int orderId, String award) {
+        return carrierRepo.getAwardedCarrierOfAnOrder(orderId, award);
     }
     
 }

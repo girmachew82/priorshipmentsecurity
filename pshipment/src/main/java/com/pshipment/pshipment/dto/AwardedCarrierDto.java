@@ -1,6 +1,6 @@
 package com.pshipment.pshipment.dto;
 
-public class AwardedCarrier {
+public class AwardedCarrierDto {
     private int carrierId;
     private String fname;
     private String mname;
@@ -64,9 +64,9 @@ public class AwardedCarrier {
     public void setEmail(String email) {
         this.email = email;
     }
-    public AwardedCarrier() {
+    public AwardedCarrierDto() {
     }
-    public AwardedCarrier(int carrierId, String fname, String mname, String lname, String address, String mCNumber,
+    public AwardedCarrierDto(int carrierId, String fname, String mname, String lname, String address, String mCNumber,
             String dOTNumber, String companyName, String email) {
         this.carrierId = carrierId;
         this.fname = fname;

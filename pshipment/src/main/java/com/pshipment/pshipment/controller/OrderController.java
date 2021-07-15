@@ -2,9 +2,23 @@ package com.pshipment.pshipment.controller;
 
 import java.util.List;
 
+import com.pshipment.pshipment.dto.AwardedCarrierDto;
+import com.pshipment.pshipment.dto.AwardedCarrierOfAnOrderDto;
+import com.pshipment.pshipment.dto.AwardedOrderDto;
+import com.pshipment.pshipment.dto.CarriersOnAnOrder;
+import com.pshipment.pshipment.dto.DriverDto;
+import com.pshipment.pshipment.dto.DriversforAnOrderDto;
+import com.pshipment.pshipment.dto.OrderDto;
 import com.pshipment.pshipment.dto.OrdersDto;
+import com.pshipment.pshipment.model.Bidding;
+import com.pshipment.pshipment.model.Carrier;
+import com.pshipment.pshipment.model.Driver;
 import com.pshipment.pshipment.model.Order;
+import com.pshipment.pshipment.service.Imp.BiddingImp;
+import com.pshipment.pshipment.service.Imp.CarrierAssignDriverImp;
+import com.pshipment.pshipment.service.Imp.CarrierImp;
 import com.pshipment.pshipment.service.Imp.CustomerImp;
+import com.pshipment.pshipment.service.Imp.DriverImp;
 import com.pshipment.pshipment.service.Imp.OrderImp;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +41,14 @@ public class OrderController {
 
     @Autowired
     private CustomerImp customerServiceImp;
-
+    @Autowired
+    private DriverImp driverServiceImp;
+    @Autowired
+    private CarrierAssignDriverImp assignImp;
+    @Autowired
+    private BiddingImp biddingServiceImp;
+    @Autowired
+    private CarrierImp carrierServiceImp;
     @GetMapping("/all")
     public List<OrdersDto>  getOrders() {
         return orderServiceImp.getOrders();
@@ -39,9 +60,15 @@ public class OrderController {
         return orderServiceImp.create(order, customerId);
         // return order;
     }
+    /*
     @GetMapping("/getByCustomerId/{customerId}")
     public List<Order> getByCustomerId(@PathVariable("customerId") int customerId) {
         return orderServiceImp.getByCustomerId(customerId);
+    }
+    */
+    @GetMapping("/getByCustomerId/{customerId}/award/{award}")
+    public List<Order> getByCustomerId(@PathVariable("customerId") int customerId, @PathVariable("award") String award) {
+        return orderServiceImp.getByCustomerId(customerId, award);
     }
     @GetMapping("/getById/{orderId}")
     public Order getById(@PathVariable("orderId") int orderId) {
@@ -50,5 +77,28 @@ public class OrderController {
     @GetMapping("/getCarriersByOrderId/{orderId}")
     public List<Object>  getCarriersByOrderId(@PathVariable("orderId") int orderId) {
         return orderServiceImp.getCarriersByOrderId(orderId);
+    }
+    @GetMapping("/orderDetail/{orderId}/award/{award}")
+    public AwardedOrderDto orderDetail(@PathVariable("orderId") int orderId, @PathVariable("award") String award) {
+        AwardedOrderDto awardedOrderDto = new AwardedOrderDto();
+
+        OrderDto orderDto = orderServiceImp.findByOrderId(orderId);
+       // AwardedCarrierOfAnOrderDto awardedCarrier  = carrierServiceImp.getAwardedCarrierOfAnOrder(orderId,award);
+       // AwardedCarrierOfAnOrderDto carrier = carrierServiceImp.getAwardedCarrierOfAnOrder(orderId,award);
+       // List<Driver> driver = driverServiceImp.getDriverByCarrierId();
+        awardedOrderDto.setOrder(orderDto);
+        //List<Driver> driverDto = driverServiceImp.getCarrierId();
+       // awardedOrderDto.setDriversDto(driverDto);
+        awardedOrderDto.setOrder(orderDto);
+      //  int biddingId = awardedCarrier.getBiddingId();
+ 
+
+        //List<DriversforAnOrderDto> drivers= assignImp.getDriverforAnOrder(biddingId);
+        //awardedOrderDto.setCarrierOnAnOrder(awardedCarrier);
+       // awardedOrderDto.setCarrierId(carrier);
+       // awardedOrderDto.setDriversDto(drivers);
+
+        return awardedOrderDto;
+        
     }
 }

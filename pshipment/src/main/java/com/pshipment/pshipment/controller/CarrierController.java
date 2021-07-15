@@ -2,12 +2,14 @@ package com.pshipment.pshipment.controller;
 
 import java.util.List;
 
+import com.pshipment.pshipment.dto.AwardedCarrierOfAnOrderDto;
 import com.pshipment.pshipment.dto.BiddingByCarrier;
 import com.pshipment.pshipment.dto.CarrierDto;
 import com.pshipment.pshipment.model.Carrier;
 import com.pshipment.pshipment.service.Imp.CarrierImp;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,5 +37,11 @@ public class CarrierController {
     @GetMapping("/getBidByCarrierId/{carrierId}")
     public List<BiddingByCarrier> getBidByCarrierId(@PathVariable("carrierId") int carrierId) {
         return carrierServiceImp.getBidByCarrierId(carrierId);
+    }
+    @GetMapping("/awardedCarrier/orderId/{orderId}/award/{award}")
+    public AwardedCarrierOfAnOrderDto getAwardedCarrierOfAnOder(@Param("orderId") int orderId,@Param("award") String award) {
+        return null;
+        
+        
     }
 }

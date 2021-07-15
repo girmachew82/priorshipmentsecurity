@@ -1,12 +1,11 @@
 package com.pshipment.pshipment.dto;
 
-public class DriversforAnOrderDto {
+public class DriverDto {
     private Integer driverId;
     private String firstName;
     private String middleName;
     private String lastName;
     private String phoneNumber;
-    
     public Integer getDriverId() {
         return driverId;
     }
@@ -37,15 +36,14 @@ public class DriversforAnOrderDto {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-    public DriversforAnOrderDto() {
+    public DriverDto() {
     }
-    public DriversforAnOrderDto(Integer driverId, String firstName, String middleName, String lastName,
-            String phoneNumber) {
+    public DriverDto(Integer driverId, String firstName, String middleName, String lastName, String phoneNumber) {
         this.driverId = driverId;
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
     }
-    
+
 }
