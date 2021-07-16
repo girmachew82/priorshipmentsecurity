@@ -33,6 +33,10 @@ public class CarrierAssignDriver {
     @JsonIgnore
     @JoinColumn(name="driverId", referencedColumnName = "driverId")
     private Driver driver;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JsonIgnore
+    @JoinColumn(name="vehicleId", referencedColumnName = "vehicleId")
+    private Vehicle vehicle;
     public Integer getAssignId() {
         return assignId;
     }
@@ -51,14 +55,21 @@ public class CarrierAssignDriver {
     public void setDriver(Driver driver) {
         this.driver = driver;
     }
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
     public CarrierAssignDriver() {
     }
-    public CarrierAssignDriver(Integer assignId, Bidding bidding, Driver driver) {
+    public CarrierAssignDriver(Integer assignId, Bidding bidding, Driver driver, Vehicle vehicle) {
         this.assignId = assignId;
         this.bidding = bidding;
         this.driver = driver;
+        this.vehicle = vehicle;
     }
-
+ 
     
 
 

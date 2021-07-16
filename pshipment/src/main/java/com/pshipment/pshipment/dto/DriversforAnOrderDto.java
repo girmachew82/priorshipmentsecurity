@@ -6,7 +6,8 @@ public class DriversforAnOrderDto {
     private String middleName;
     private String lastName;
     private String phoneNumber;
-    
+    private int vehicleId;
+    private String vehicleNumber;
     public Integer getDriverId() {
         return driverId;
     }
@@ -37,15 +38,30 @@ public class DriversforAnOrderDto {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+    public int getVehicleId() {
+        return vehicleId;
+    }
+    public void setVehicleId(int vehicleId) {
+        this.vehicleId = vehicleId;
+    }
+    public String getVehicleNumber() {
+        return vehicleNumber;
+    }
+    public void setVehicleNumber(String vehicleNumber) {
+        this.vehicleNumber = vehicleNumber;
+    }
     public DriversforAnOrderDto() {
     }
     public DriversforAnOrderDto(Integer driverId, String firstName, String middleName, String lastName,
-            String phoneNumber) {
+            String phoneNumber, int vehicleId, String vehicleNumber) {
         this.driverId = driverId;
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
+        this.vehicleId = vehicleId;
+        this.vehicleNumber = vehicleNumber;
     }
+    
     
 }

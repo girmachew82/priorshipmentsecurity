@@ -1,5 +1,6 @@
 package com.pshipment.pshipment.service.Imp;
 
+import java.util.Collection;
 import java.util.List;
 
 import com.pshipment.pshipment.dto.OrderDto;
@@ -45,7 +46,7 @@ public class OrderImp implements OrderInter {
         return orderRepo.getCarriersByOrderId(orderId);
     }
     @Override
-    public Object getCarrierByOrderId(int orderId) {
+    public Collection getCarrierByOrderId(int orderId) {
         return orderRepo.getCarrierByOrderId(orderId);
     }
 

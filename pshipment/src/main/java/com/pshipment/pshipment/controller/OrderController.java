@@ -89,9 +89,11 @@ public class OrderController {
        // List<Driver> driver = driverServiceImp.getDriverByCarrierId();
         
        awardedOrderDto.setOrder(orderDto);
-       BiddingDto  bidding = biddingServiceImp.getByOrderIdAndAward(orderId, award);
-       awardedOrderDto.setBiddingId(bidding.getBiddingId());
-       awardedOrderDto.setExpectedPrice(bidding.getExpectedPrice());
+      // BiddingDto  bidding = biddingServiceImp.getByOrderIdAndAward(orderId, award);
+       //awardedOrderDto.setBiddingId(bidding.getBiddingId());
+       //awardedOrderDto.setExpectedPrice(bidding.getExpectedPrice());
+       AwardedCarrierOfAnOrderDto  awardedCarrier = carrierServiceImp.getAwardedCarrierOfAnOrder(orderId, award);
+       awardedOrderDto.setCarrierOnAnOrder(awardedCarrier);
         List<DriversforAnOrderDto> drivers = assignImp.getDriverforAnOrder(orderId);
         awardedOrderDto.setDriversDto(drivers);
         

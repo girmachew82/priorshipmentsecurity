@@ -21,15 +21,28 @@ import org.hibernate.annotations.NamedNativeQuery;
 
 @Entity
 @Table(name = "drivers")
-@NamedNativeQuery(name = "findDriversofAnOrder", query = "SELECT " + "drivers.driver_id AS driverId,"
-        + " drivers.first_name AS firstName," + "drivers.middle_name AS middleName," + "drivers.last_name AS lastName,"
-        + "drivers.phone_number  AS phoneNumber " + "FROM assign_drivers "
+@NamedNativeQuery(name = "findDriversofAnOrder",
+              query = "SELECT " + "drivers.driver_id AS driverId,"
+        + " drivers.first_name AS firstName," 
+        + "drivers.middle_name AS middleName," 
+        + "drivers.last_name AS lastName,"
+        + "drivers.phone_number  AS phoneNumber, " 
+        + "vehicles.vehicle_id AS vehicleId,"
+        + "vehicles.vehicle_name  AS vehicleName " 
+        + "FROM assign_drivers "
         + "INNER JOIN drivers ON drivers.driver_id =assign_drivers.driver_id "
+        + "INNER JOIN vehicles ON vehicles.vehicle_id =assign_drivers.vehicle_id "
         + "WHERE  assign_drivers.bidding_id = :biddingId", resultSetMapping = "driversofAnOrder")
-@SqlResultSetMapping(name = "driversofAnOrder", classes = @ConstructorResult(targetClass = DriversforAnOrderDto.class, columns = {
-        @ColumnResult(name = "driverId", type = Integer.class), @ColumnResult(name = "firstName", type = String.class),
-        @ColumnResult(name = "middleName", type = String.class), @ColumnResult(name = "lastName", type = String.class),
-        @ColumnResult(name = "phoneNumber", type = String.class) }))
+@SqlResultSetMapping(name = "driversofAnOrder", classes =
+ @ConstructorResult(targetClass = DriversforAnOrderDto.class, columns = {
+        @ColumnResult(name = "driverId", type = Integer.class), 
+        @ColumnResult(name = "firstName", type = String.class),
+        @ColumnResult(name = "middleName", type = String.class), 
+        @ColumnResult(name = "lastName", type = String.class),
+        @ColumnResult(name = "phoneNumber", type = String.class),
+        @ColumnResult(name = "vehicleId", type = Integer.class),
+        @ColumnResult(name = "vehicleName", type = String.class)
+    }))
 public class Driver {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

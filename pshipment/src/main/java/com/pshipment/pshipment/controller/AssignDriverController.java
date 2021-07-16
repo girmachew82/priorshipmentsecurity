@@ -20,9 +20,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class AssignDriverController {
     @Autowired
     private CarrierAssignDriverImp assignDriverImp;
-    @PostMapping("/biddingId/{biddingId}/driverId/{driverId}")
-    public CarrierAssignDriver  carrierAssignDriver(@RequestBody CarrierAssignDriver carrierAssignDriver, @PathVariable("biddingId") int biddingId, @PathVariable("driverId") int driverId  ){
-        return assignDriverImp.assign(carrierAssignDriver, biddingId, driverId);
+    @PostMapping("/biddingId/{biddingId}/driverId/{driverId}/vehicleId/{vehicleId}")
+    public CarrierAssignDriver  carrierAssignDriver(@RequestBody CarrierAssignDriver carrierAssignDriver, @PathVariable("biddingId") int biddingId, @PathVariable("driverId") int driverId ,@PathVariable("vehicleId") int vehicleId){
+        return assignDriverImp.assign(carrierAssignDriver, biddingId, driverId,vehicleId);
     }
     @GetMapping("/getDrivers/{biddingId}")
     public List<DriversforAnOrderDto> getDriversforAnOrder(@PathVariable("biddingId") int biddingId){
