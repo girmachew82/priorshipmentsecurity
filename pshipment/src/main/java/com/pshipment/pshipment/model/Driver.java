@@ -43,7 +43,7 @@ import org.hibernate.annotations.NamedNativeQuery;
         @ColumnResult(name = "vehicleId", type = Integer.class),
         @ColumnResult(name = "vehicleName", type = String.class)
     }))
-public class Driver {
+public class Driver extends AuditModel{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer driverId;

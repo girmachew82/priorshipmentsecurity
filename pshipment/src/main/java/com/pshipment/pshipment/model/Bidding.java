@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Entity
 @Table(name = "Biddings")
 
-public class Bidding {
+public class Bidding extends AuditModel{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int biddingId;

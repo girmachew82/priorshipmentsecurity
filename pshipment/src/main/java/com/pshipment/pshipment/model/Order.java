@@ -111,7 +111,7 @@ import com.pshipment.pshipment.dto.AwardedOrderDto;
 
         @ColumnResult(name = "Col31", type = Null.class), }))
 
-public class Order {
+public class Order extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int orderId;

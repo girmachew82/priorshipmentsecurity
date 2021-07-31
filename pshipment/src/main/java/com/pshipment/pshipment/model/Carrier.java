@@ -25,7 +25,7 @@ import org.hibernate.annotations.ManyToAny;
 @Entity
 @Table(name = "carriers")
 
-public class Carrier {
+public class Carrier extends AuditModel{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int carrierId;

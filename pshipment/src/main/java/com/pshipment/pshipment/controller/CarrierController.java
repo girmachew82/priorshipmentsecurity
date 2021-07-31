@@ -6,16 +6,14 @@ import com.pshipment.pshipment.dto.AwardedCarrierOfAnOrderDto;
 import com.pshipment.pshipment.dto.BiddingByCarrier;
 import com.pshipment.pshipment.dto.CarrierDto;
 import com.pshipment.pshipment.model.Carrier;
+import com.pshipment.pshipment.model.Customer;
 import com.pshipment.pshipment.service.Imp.CarrierImp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/carrier")
@@ -23,7 +21,8 @@ public class CarrierController {
     @Autowired
     private CarrierImp carrierServiceImp;
     @PostMapping("/add")
-    public Carrier create(@RequestBody Carrier carrier) {
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity<Carrier> create(@RequestBody Carrier carrier) {
         return carrierServiceImp.create(carrier);
     }
     @GetMapping("/all")
