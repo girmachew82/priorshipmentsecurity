@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name="AssignDrivers")
-public class CarrierAssignDriver {
+public class CarrierAssignDriver extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer assignId;

@@ -15,7 +15,7 @@ import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name="customers")
-public class Customer {
+public class Customer extends AuditModel{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int customerId;

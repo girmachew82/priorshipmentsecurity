@@ -6,9 +6,10 @@ import com.pshipment.pshipment.dto.AwardedCarrierOfAnOrderDto;
 import com.pshipment.pshipment.dto.BiddingByCarrier;
 import com.pshipment.pshipment.dto.CarrierDto;
 import com.pshipment.pshipment.model.Carrier;
+import org.springframework.http.ResponseEntity;
 
 public interface CarrierInter {
-    Carrier create(Carrier carrier);
+  ResponseEntity <Carrier> create(Carrier carrier);
     List<Carrier> all();
     List<CarrierDto> getAll();
     List<BiddingByCarrier> getBidByCarrierId(int carrierId);

@@ -1,5 +1,6 @@
 package com.pshipment.pshipment.service.Imp;
 
+import java.net.URI;
 import java.util.List;
 
 import com.pshipment.pshipment.dto.AwardedCarrierOfAnOrderDto;
@@ -10,14 +11,24 @@ import com.pshipment.pshipment.repository.CarrierRepository;
 import com.pshipment.pshipment.service.Inter.CarrierInter;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
 @Service
 public class CarrierImp implements CarrierInter{
     @Autowired
     private CarrierRepository carrierRepo;
     @Override
-    public Carrier create(Carrier carrier) {
-          return carrierRepo.save(carrier);
+    public ResponseEntity<Carrier> create(Carrier carrier)
+    {
+        Carrier savedCarrier=this.carrierRepo.save(carrier);
+        URI location = ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(savedCarrier.getCarrierId()).toUri();
+        return ResponseEntity.created(location).build();
+
     }
     @Override
     public List<Carrier> all() {

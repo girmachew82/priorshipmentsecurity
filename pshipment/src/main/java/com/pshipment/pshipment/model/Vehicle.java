@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name ="vehicles")
-public class Vehicle {
+public class Vehicle extends AuditModel{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int vehicleId;
