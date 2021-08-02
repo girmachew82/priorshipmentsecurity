@@ -3,6 +3,8 @@ package com.pshipment.pshipment.service.Imp;
 import java.util.Collection;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import com.pshipment.pshipment.dto.OrderDto;
 import com.pshipment.pshipment.dto.OrdersDto;
 import com.pshipment.pshipment.model.Order;
@@ -14,6 +16,7 @@ import com.pshipment.pshipment.service.Inter.OrderInter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 @Service
+@Transactional
 public class OrderImp implements OrderInter {
     @Autowired
     private OrderRepository orderRepo;
